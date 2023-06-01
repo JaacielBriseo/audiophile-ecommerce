@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import './globals.css';
 import { Manrope } from 'next/font/google';
+import { Navbar } from '@/components';
 
 const inter = Manrope({ subsets: ['latin'] });
 
@@ -17,7 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className} suppressHydrationWarning>
+				<Navbar />
+				{children}
+			</body>
 		</html>
 	);
 }

@@ -1,0 +1,27 @@
+import { routes } from '@/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export const CategoriesRoutes = () => {
+	return (
+		<ul className='flex flex-col items-center space-y-16 w-screen py-20'>
+			{routes.map(({ href, label, image }) => {
+				if (href === '/') return null;
+				return (
+					<li
+						key={label}
+						className='h-52 bg-white-400 w-[327px] relative flex flex-col items-center justify-center rounded-lg'>
+						<Image src={image!} alt={label} width={135} height={135} className='absolute -top-10' />
+						<h1 className='text-lg font-bold'>{label}</h1>
+						<Link
+							href={href}
+							className='text-black-400 absolute bottom-10 font-bold text-sm flex items-center space-x-2'>
+							<p>SHOP</p>
+							<Image src='/assets/shared/icon-arrow-right.svg' alt='Arrow Right' height={10} width={10} />
+						</Link>
+					</li>
+				);
+			})}
+		</ul>
+	);
+};
