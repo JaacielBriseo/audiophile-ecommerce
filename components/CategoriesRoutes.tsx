@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const CategoriesRoutes = () => {
 	return (
-		<ul className='flex flex-col items-center space-y-16 w-screen py-20'>
+		<ul className='flex flex-col items-center space-y-16 py-20 md:flex-row md:space-y-0 md:gap-x-5'>
 			{routes.map(({ href, label, image }) => {
 				if (href === '/') return null;
 				return (

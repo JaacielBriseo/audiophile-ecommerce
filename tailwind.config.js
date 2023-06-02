@@ -27,7 +27,13 @@ module.exports = {
 				900: '#000000',
 			},
 		},
-		extend: {},
+		extend: {
+			backgroundImage:{
+				heroMobile:`url('/assets/home/mobile/image-header.jpg')`,
+				heroTablet:`url('/assets/home/tablet/image-header.jpg')`,
+				heroDesktop:`url('/assets/home/desktop/image-hero.jpg')`,
+			}
+		},
 	},
 	plugins: [],
 };
