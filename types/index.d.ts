@@ -4,6 +4,7 @@ export interface Product {
   id:            number;
   slug:          string;
   name:          string;
+  isTop:         boolean;
   image:         CategoryImage;
   category:      string;
   categoryImage: CategoryImage;

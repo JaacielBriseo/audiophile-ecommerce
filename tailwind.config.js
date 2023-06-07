@@ -26,13 +26,19 @@ module.exports = {
 				800: '#101010',
 				900: '#000000',
 			},
+			transparent: 'rgba(0, 0, 0, 0)',
 		},
 		extend: {
-			backgroundImage:{
-				heroMobile:`url('/assets/home/mobile/image-header.jpg')`,
-				heroTablet:`url('/assets/home/tablet/image-header.jpg')`,
-				heroDesktop:`url('/assets/home/desktop/image-hero.jpg')`,
-			}
+			backgroundImage: {
+				heroMobile: `url('/assets/home/mobile/image-header.jpg')`,
+				heroTablet: `url('/assets/home/tablet/image-header.jpg')`,
+				heroDesktop: `url('/assets/home/desktop/image-hero.jpg')`,
+				circlesPattern: 'url("/assets/shared/pattern-circles.svg")',
+				homeZx7Mobile: 'url("/assets/home/mobile/image-speaker-zx7.jpg")',
+				homeZx7Tablet: 'url("/assets/home/tablet/image-speaker-zx7.jpg")',
+				homeZx7Desktop: 'url("/assets/home/desktop/image-speaker-zx7.jpg")',
+				homeYx1Mobile: 'url("/assets/home/mobile/image-earphones-yx1.jpg")',
+			},
 		},
 	},
 	plugins: [],
