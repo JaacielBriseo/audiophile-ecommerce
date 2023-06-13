@@ -1,4 +1,5 @@
 import { CategoriesRoutes } from '@/components/CategoriesRoutes';
+import { CompanyOverview } from '@/components/CompanyOverview';
 import { Container } from '@/components/Container';
 import { Hero } from '@/components/Hero';
 import { TopProducts } from '@/components/TopProducts';
@@ -20,6 +21,7 @@ export default async function Home() {
 			<Container>
 				<CategoriesRoutes />
 				<TopProducts topProducts={topProducts} />
+				<CompanyOverview />
 			</Container>
 		</main>
 	);
