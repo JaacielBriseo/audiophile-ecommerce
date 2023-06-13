@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import './globals.css';
 import { Manrope } from 'next/font/google';
 import { Navbar } from '@/components';
+import { Footer } from '@/components/Footer';
 
 const inter = Manrope({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={inter.className} suppressHydrationWarning>
 				<Navbar />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
