@@ -5,17 +5,17 @@ export const routes = [
 	},
 	{
 		label: 'HEADPHONES',
-		href: '/category/headphones',
+		href: '/categories/headphones',
 		image: '/assets/shared/desktop/image-category-thumbnail-headphones.png',
 	},
 	{
 		label: 'SPEAKERS',
-		href: '/category/speakers',
+		href: '/categories/speakers',
 		image: '/assets/shared/desktop/image-category-thumbnail-speakers.png',
 	},
 	{
 		label: 'EARPHONES',
-		href: '/category/earphones',
+		href: '/categories/earphones',
 		image: '/assets/shared/desktop/image-category-thumbnail-earphones.png',
 	},
 ];
