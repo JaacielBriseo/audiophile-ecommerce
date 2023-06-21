@@ -1,21 +1,25 @@
-import { LinkButton, ProductImage } from '@/components';
-import { Product } from '@/types';
 import { Metadata } from 'next';
-import products from '@/data/data.json';
 import { notFound } from 'next/navigation';
+import { getCategoryProducts } from '@/libs/fakeDb';
+import { LinkButton, ProductImage } from '@/components';
 
 interface Props {
 	params: { category: string };
 }
 
 export async function generateStaticParams() {
-	const staticProducts = products.map(product => ({
-		category: product.category,
-	}));
 
-	return staticProducts.map(({ category }) => ({
-		category,
-	}));
+	return [
+		{
+			category: 'earphones',
+		},
+		{
+			category: 'speakers',
+		},
+		{
+			category: 'headphones',
+		},
+	];
 }
 
 export function generateMetadata({ params }: Props): Metadata {
@@ -24,23 +28,11 @@ export function generateMetadata({ params }: Props): Metadata {
 		description: `Products page for ${params.category} category}`,
 	};
 }
-
-const getCategoryProducts = async (category: string): Promise<Product[]> => {
-	// const response = await fetch(`http://localhost:3000/api/categories/${category}`);
-	// if (!response) {
-	// 	throw new Error('Error fetching category products');
-	// }
-	// return response
-	const response = products.filter(product => product.category === category);
-
-	if (response.length === 0) {
-		notFound();
-	}
-	return response;
-};
-
 const CategoryPage = async ({ params: { category } }: Props) => {
 	const productsByCategory = await getCategoryProducts(category);
+	if (productsByCategory.length === 0) {
+		notFound();
+	}
 	return (
 		<>
 			<header className='bg-black-900 absolute top-0 left-0 w-full h-24 flex flex-col items-center justify-center'>

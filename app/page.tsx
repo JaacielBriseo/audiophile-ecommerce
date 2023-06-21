@@ -1,17 +1,8 @@
 import { CategoriesRoutes, CompanyOverview, Hero, TopProducts } from '@/components';
-
-import { Product } from '@/types';
-
-const getTopProducts = async () => {
-	const response = await fetch('http://localhost:3000/api/products?top_products=true');
-	if (!response.ok) {
-		throw 'Problem fetching products';
-	}
-	return response.json();
-};
+import { getTopProducts } from '@/libs/fakeDb';
 
 export default async function Home() {
-	const topProducts = (await getTopProducts()) as Product[];
+	const topProducts = await getTopProducts();
 	return (
 		<main>
 			<Hero />
