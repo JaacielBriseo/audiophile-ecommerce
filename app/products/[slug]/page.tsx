@@ -1,9 +1,7 @@
-import { ProductCard } from '@/components/ProductCard';
-import { ProductFeaturesAndBox } from '@/components/ProductFeaturesAndBox';
-import { ProductGallery } from '@/components/ProductGallery';
-import { ProductRelated } from '@/components/ProductRelated';
-import { Product } from '@/types';
 import { notFound } from 'next/navigation';
+
+import { ProductCard, ProductFeaturesAndBox, ProductGallery, ProductRelated } from '@/components';
+import { Product } from '@/types';
 
 const getProduct = async (slug: string): Promise<Product> => {
 	const response = await fetch(`http://localhost:3000/api/products/${slug}`);

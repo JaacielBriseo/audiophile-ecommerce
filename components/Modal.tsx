@@ -1,8 +1,8 @@
 'use client';
 
-import clsx from 'clsx';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import clsx from 'clsx';
 
 interface Props {
 	children: React.ReactNode;

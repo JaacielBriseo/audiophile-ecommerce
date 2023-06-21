@@ -1,6 +1,4 @@
-import { CategoriesRoutes } from '@/components/CategoriesRoutes';
-import { CompanyOverview } from '@/components/CompanyOverview';
-import { GoBackButton } from '@/components/GoBackButton';
+import { CategoriesRoutes, CompanyOverview, GoBackButton } from '@/components';
 
 const ProductPageLayout = ({ children }: { children: React.ReactNode }) => {
 	return (

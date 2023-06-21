@@ -1,5 +1,5 @@
-import { CategoriesRoutes } from '@/components/CategoriesRoutes';
-import { CompanyOverview } from '@/components/CompanyOverview';
+import { CategoriesRoutes, CompanyOverview } from "@/components";
+
 
 const CategoriesLayout = ({ children }: { children: React.ReactNode }) => {
 	return (

@@ -1,8 +1,8 @@
 'use client';
 
+import Image, { ImageProps } from 'next/image';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { CategoryImage } from '@/types';
-import Image, { ImageProps } from 'next/image';
 
 interface Props extends Omit<ImageProps,'src'> {
 	image: CategoryImage;

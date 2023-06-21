@@ -1,14 +1,11 @@
-import { CategoriesRoutes } from '@/components/CategoriesRoutes';
-import { CompanyOverview } from '@/components/CompanyOverview';
-import { Container } from '@/components/Container';
-import { Hero } from '@/components/Hero';
-import { TopProducts } from '@/components/TopProducts';
+import { CategoriesRoutes, CompanyOverview, Hero, TopProducts } from '@/components';
+
 import { Product } from '@/types';
 
 const getTopProducts = async () => {
 	const response = await fetch('http://localhost:3000/api/products?top_products=true');
 	if (!response.ok) {
-		throw new Error('Problem fetching products');
+		throw 'Problem fetching products';
 	}
 	return response.json();
 };
@@ -18,11 +15,11 @@ export default async function Home() {
 	return (
 		<main>
 			<Hero />
-			<Container>
+			<div className='space-y-20 py-10 px-10 md:px-12 lg:px-24 xl:px-36'>
 				<CategoriesRoutes />
 				<TopProducts topProducts={topProducts} />
 				<CompanyOverview />
-			</Container>
+			</div>
 		</main>
 	);
 }
