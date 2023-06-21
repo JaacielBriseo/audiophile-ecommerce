@@ -1,8 +1,36 @@
 import { LinkButton, ProductImage } from '@/components';
 import { Product } from '@/types';
+import { Metadata } from 'next';
 
 interface Props {
 	params: { category: string };
+}
+
+export async function generateStaticParams() {
+	const products: Product[] = await fetch(`http://localhost:3000/api/products`).then(res => res.json());
+	const staticProducts = products.map(product => ({
+		category: product.category,
+	}));
+
+	return staticProducts.map(({ category }) => ({
+		category,
+	}));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	try {
+		await getCategoryProducts(params.category);
+
+		return {
+			title: `Products - Category:  ${params.category.toUpperCase()}`,
+			description: `Products page for ${params.category} category}`,
+		};
+	} catch (error) {
+		return {
+			title: 'Products Page',
+			description: 'Products Description.',
+		};
+	}
 }
 
 const getCategoryProducts = async (category: string): Promise<Product[]> => {
@@ -35,7 +63,7 @@ const CategoryPage = async ({ params: { category } }: Props) => {
 							alt={product.slug}
 							width={500}
 							height={500}
-							className='w-full h-[352px] relative lg:w-1/2 lg:h-[560px] object-cover rounded-lg'
+							className='w-full relative lg:w-1/2 lg:h-[560px] object-cover rounded-lg'
 						/>
 
 						<div

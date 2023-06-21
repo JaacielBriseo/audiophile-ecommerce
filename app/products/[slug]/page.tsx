@@ -1,7 +1,40 @@
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { ProductCard, ProductFeaturesAndBox, ProductGallery, ProductRelated } from '@/components';
 import { Product } from '@/types';
+import { ProductCard, ProductFeaturesAndBox, ProductGallery, ProductRelated } from '@/components';
+
+interface Props {
+	params: { slug: string };
+}
+
+//! Build time
+export async function generateStaticParams() {
+	const products: Product[] = await fetch(`http://localhost:3000/api/products`).then(res => res.json());
+	const staticProducts = products.map(product => ({
+		slug: product.slug,
+	}));
+
+	return staticProducts.map(({ slug }) => ({
+		slug,
+	}));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	try {
+		const { id, name, new: isNew } = await getProduct(params.slug);
+
+		return {
+			title: `#${id} - Product:${name}`,
+			description: `Product page for ${name} ${isNew ? '- New product' : ''}`,
+		};
+	} catch (error) {
+		return {
+			title: 'Product Page',
+			description: 'Product Description.',
+		};
+	}
+}
 
 const getProduct = async (slug: string): Promise<Product> => {
 	const response = await fetch(`http://localhost:3000/api/products/${slug}`);
@@ -11,7 +44,7 @@ const getProduct = async (slug: string): Promise<Product> => {
 	return response.json();
 };
 
-const ProductBySlugPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+const ProductBySlugPage = async ({ params: { slug } }: Props) => {
 	const product = await getProduct(slug);
 	return (
 		<>
