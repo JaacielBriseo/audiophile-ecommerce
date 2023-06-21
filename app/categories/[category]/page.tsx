@@ -17,20 +17,11 @@ export async function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	try {
-		await getCategoryProducts(params.category);
-
-		return {
-			title: `Products - Category:  ${params.category.toUpperCase()}`,
-			description: `Products page for ${params.category} category}`,
-		};
-	} catch (error) {
-		return {
-			title: 'Products Page',
-			description: 'Products Description.',
-		};
-	}
+export function generateMetadata({ params }: Props): Metadata {
+	return {
+		title: `Products - Category:  ${params.category.toUpperCase()}`,
+		description: `Products page for ${params.category} category}`,
+	};
 }
 
 const getCategoryProducts = async (category: string): Promise<Product[]> => {
