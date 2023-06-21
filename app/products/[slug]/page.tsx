@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { Product } from '@/types';
 import { ProductCard, ProductFeaturesAndBox, ProductGallery, ProductRelated } from '@/components';
+import products from '@/data/data.json';
 
 interface Props {
 	params: { slug: string };
@@ -10,7 +11,6 @@ interface Props {
 
 //! Build time
 export async function generateStaticParams() {
-	const products: Product[] = await fetch(`http://localhost:3000/api/products`).then(res => res.json());
 	const staticProducts = products.map(product => ({
 		slug: product.slug,
 	}));
@@ -37,11 +37,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const getProduct = async (slug: string): Promise<Product> => {
-	const response = await fetch(`http://localhost:3000/api/products/${slug}`);
-	if (response.status === 404) {
+	// const response = await fetch(`http://localhost:3000/api/products/${slug}`);
+
+	// if (response.status === 404) {
+	// 	notFound();
+	// }
+	// return response.json();
+	const response = products.find(prod => prod.slug === slug);
+	if (!response) {
 		notFound();
 	}
-	return response.json();
+	return response;
 };
 
 const ProductBySlugPage = async ({ params: { slug } }: Props) => {

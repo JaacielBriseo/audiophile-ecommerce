@@ -1,13 +1,14 @@
 import { LinkButton, ProductImage } from '@/components';
 import { Product } from '@/types';
 import { Metadata } from 'next';
+import products from '@/data/data.json';
+import { notFound } from 'next/navigation';
 
 interface Props {
 	params: { category: string };
 }
 
 export async function generateStaticParams() {
-	const products: Product[] = await fetch(`http://localhost:3000/api/products`).then(res => res.json());
 	const staticProducts = products.map(product => ({
 		category: product.category,
 	}));
@@ -25,12 +26,17 @@ export function generateMetadata({ params }: Props): Metadata {
 }
 
 const getCategoryProducts = async (category: string): Promise<Product[]> => {
-	const response = await fetch(`http://localhost:3000/api/categories/${category}`);
+	// const response = await fetch(`http://localhost:3000/api/categories/${category}`);
+	// if (!response) {
+	// 	throw new Error('Error fetching category products');
+	// }
+	// return response
+	const response = products.filter(product => product.category === category);
 
-	if (!response.ok) {
-		throw new Error('Error fetching category products');
+	if (response.length === 0) {
+		notFound();
 	}
-	return response.json();
+	return response;
 };
 
 const CategoryPage = async ({ params: { category } }: Props) => {
