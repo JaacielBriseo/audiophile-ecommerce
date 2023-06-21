@@ -30,9 +30,9 @@ const CategoryPage = async ({ params: { category } }: Props) => {
 							i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
 						}`}>
 						{/* Client component to handle responsive images with useWindowSize hook*/}
-						<div className='w-full h-[352px] relative lg:w-1/2 lg:h-[560px]'>
-							<ProductImage image={product.categoryImage} alt={product.slug} />
-						</div>
+					
+							<ProductImage image={product.categoryImage} alt={product.slug} width={500} height={500} className='w-full h-[352px] relative lg:w-1/2 lg:h-[560px] object-cover' />
+						
 
 						<div
 							className={`flex flex-col items-center justify-center space-y-5 md:space-y-8 lg:w-1/2 lg:mx-5 lg:items-start ${

@@ -11,7 +11,7 @@ export const CategoriesRoutes = () => {
 					<li
 						key={label}
 						className='h-52 bg-white-400 w-full relative flex flex-col items-center justify-center rounded-lg'>
-						<Image src={image!} alt={label} width={135} height={135} className='absolute -top-10' />
+						<Image src={image!} alt={label} width={135} height={135} className='absolute -top-10 object-cover' />
 						<h1 className='text-lg font-bold'>{label}</h1>
 						<Link
 							href={href}
