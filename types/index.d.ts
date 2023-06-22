@@ -39,3 +39,7 @@ export interface Other {
   name:  string;
   image: CategoryImage;
 }
+
+export interface ProductInCart extends Product{
+  quantity:number
+}
