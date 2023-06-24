@@ -1,3 +1,4 @@
+'use client'
 import { useContext, useMemo } from 'react';
 import { CartContext } from './CartContext';
 import Image from 'next/image';
