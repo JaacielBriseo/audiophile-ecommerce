@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import { Cart } from './cart/Cart';
 import { MobileMenu, NavRoutes } from './';
-import { CartButton } from './cart/CartButton';
+
 export const Navbar = () => {
 	return (
 		<nav className='bg-black-900 flex justify-between items-center h-24 py-2 px-5 md:px-9 lg:px-5'>
@@ -12,7 +13,7 @@ export const Navbar = () => {
 				<NavRoutes />
 			</div>
 			<Image src='/assets/shared/logo.svg' alt='Logo' width={0} height={0} className='w-36 md:hidden' />
-			<CartButton />
+			<Cart />
 		</nav>
 	);
 };

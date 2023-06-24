@@ -1,12 +1,10 @@
-'use client'
-import { useContext, useMemo } from 'react';
-import { CartContext } from './CartContext';
+import { ProductInCart } from '@/types';
 import Image from 'next/image';
-import { CartQuantityControls } from './CartQuantityControls';
-
-export const CartContent = () => {
-	const { cart, isCartModalOpen } = useContext(CartContext);
-	const total = useMemo(() => cart.reduce((acc, product) => acc + product.quantity * product.price, 0), [cart]);
+interface Props {
+	cart: ProductInCart[];
+}
+export const CartContent = ({ cart }: Props) => {
+	
 	return (
 		<div className='flex flex-col space-y-5'>
 			<div className='flex justify-between'>

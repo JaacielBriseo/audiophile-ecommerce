@@ -4,7 +4,6 @@ import { Manrope } from 'next/font/google';
 import { Navbar, Footer } from '@/components';
 
 import './globals.css';
-import { CartProvider } from '@/components/cart/CartProvider';
 const inter = Manrope({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -21,11 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang='en'>
 			<body className={inter.className} suppressHydrationWarning>
-				<CartProvider>
-					<Navbar />
-					{children}
-					<Footer />
-				</CartProvider>
+				<Navbar />
+				{children}
+				<Footer />
 			</body>
 		</html>
 	);
