@@ -16,6 +16,12 @@
 		}
 	}
 }
+@layer base {
+	html,
+	body {
+		@apply peer-[.modal-handler]:peer-checked:overflow-hidden;
+	}
+}
 
 .btn-primary {
 	@apply text-center uppercase px-6 py-4 font-medium tracking-wider transition duration-150
