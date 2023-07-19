@@ -1,6 +1,6 @@
-import { Product } from '@/types';
 import Image from 'next/image';
-import { LinkButton } from './LinkButton';
+import { Product } from '@/types';
+import { LinkButton } from '@/components/shared/LinkButton';
 
 interface Props {
 	topProducts: Product[];

@@ -1,6 +1,9 @@
 import { type Metadata } from 'next';
 import { getAllProducts, getProductBySlug } from '@/libs/fakeDb';
-import { ProductCard, ProductFeaturesAndBox, ProductGallery, ProductRelated } from '@/components';
+import { ProductCard } from '@/components/product/ProductCard';
+import { ProductFeaturesAndBox } from '@/components/product/ProductFeaturesAndBox';
+import { ProductGallery } from '@/components/product/ProductGallery';
+import { ProductRelated } from '@/components/product/ProductRelated';
 
 interface Props {
 	params: { slug: string };

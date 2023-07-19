@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCategoryProducts } from '@/libs/fakeDb';
-import { LinkButton, ProductImage } from '@/components';
+import { ProductImage } from '@/components/product/ProductImage';
+import { LinkButton } from '@/components/shared/LinkButton';
 
 interface Props {
 	params: { category: string };
 }
 
 export async function generateStaticParams() {
-
 	return [
 		{
 			category: 'earphones',

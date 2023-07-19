@@ -1,4 +1,8 @@
-import { CategoriesRoutes, CompanyOverview, Hero, TopProducts } from '@/components';
+
+import { TopProducts } from '@/components/product/TopProducts';
+import { CategoriesRoutes } from '@/components/shared/CategoriesRoutes';
+import { CompanyOverview } from '@/components/shared/CompanyOverview';
+import { Hero } from '@/components/shared/Hero';
 import { getTopProducts } from '@/libs/fakeDb';
 
 export default async function Home() {

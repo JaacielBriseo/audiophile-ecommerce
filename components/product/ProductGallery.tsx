@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Gallery } from '@/types';
 import { ProductImage } from './ProductImage';
 

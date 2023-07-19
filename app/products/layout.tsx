@@ -1,4 +1,7 @@
-import { CategoriesRoutes, CompanyOverview, GoBackButton } from '@/components';
+import { CategoriesRoutes } from "@/components/shared/CategoriesRoutes";
+import { CompanyOverview } from "@/components/shared/CompanyOverview";
+import { GoBackButton } from "@/components/shared/GoBackButton";
+
 
 const ProductPageLayout = ({ children }: { children: React.ReactNode }) => {
 	return (

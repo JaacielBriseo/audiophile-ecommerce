@@ -1,3 +1,4 @@
+'use server';
 import { ProductInCart } from '@/types';
 import { cookies } from 'next/headers';
 import products from '@/data/data.json';
@@ -15,4 +16,9 @@ export const getProductsInCart = (): ProductInCart[] => {
 	}
 
 	return productsInCart;
+};
+
+export const removeAllProductsInCart = () => {
+	const cookiesStore = cookies();
+	cookiesStore.set('cart', JSON.stringify({}));
 };

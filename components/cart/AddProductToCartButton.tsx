@@ -1,6 +1,6 @@
 'use client';
-import { addProductToCart } from '@/utils/cart-actions';
 import { useRouter } from 'next/navigation';
+import { addProductToCart } from '@/utils/cart-actions';
 
 interface Props {
 	productId: string;
@@ -14,7 +14,7 @@ export const AddProductToCartButton = ({ productId, quantity }: Props) => {
 				addProductToCart(productId, quantity);
 				router.refresh();
 			}}
-			className='flex-1 btn-primary md:max-w-[180px]'>
+			className='flex-1 btn-primary md:max-w-[160px]'>
 			Add to cart
 		</button>
 	);

@@ -1,4 +1,4 @@
-import { LinkButton } from './';
+import { LinkButton } from '@/components/shared/LinkButton';
 
 export const Hero = () => {
 	return (

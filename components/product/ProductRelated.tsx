@@ -1,5 +1,5 @@
 import { Other } from '@/types';
-import { LinkButton } from './LinkButton';
+import { LinkButton } from '@/components/shared/LinkButton';
 import { ProductImage } from './ProductImage';
 
 interface Props {

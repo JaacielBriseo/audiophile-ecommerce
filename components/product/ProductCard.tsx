@@ -1,6 +1,6 @@
 import { Product } from '@/types';
 import { ProductImage } from './ProductImage';
-import { QuantityHandlers } from './cart/QuantityHandlers';
+import { QuantityHandlers } from '@/components/cart/QuantityHandlers';
 
 interface Props {
 	product: Product;
