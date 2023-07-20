@@ -40,11 +40,11 @@ export const QuantityHandlers = ({ productId, initialQuantity = 1, withSubmitBtn
 			<div
 				className={clsx('flex justify-center items-center gap-5 bg-white-400 max-w-[120px]', withSubmitBtn ? 'w-1/3' : 'w-full p-1')}
 				id='cart-add-substract'>
-				<button onClick={onDecrementQuantity}>
+				<button className='w-1/3' onClick={onDecrementQuantity}>
 					<p className='text-black-400 font-bold text-sm'>-</p>
 				</button>
 				<p className='font-bold'>{quantity}</p>
-				<button onClick={onIncrementQuantity}>
+				<button className='w-1/3' onClick={onIncrementQuantity}>
 					<p className='text-black-400 font-bold text-sm'>+</p>
 				</button>
 			</div>

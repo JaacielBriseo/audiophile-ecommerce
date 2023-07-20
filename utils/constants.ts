@@ -19,3 +19,6 @@ export const routes = [
 		image: '/assets/shared/desktop/image-category-thumbnail-earphones.png',
 	},
 ];
+
+export const shippingCost = 50;
+export const vatPercentage = 20
