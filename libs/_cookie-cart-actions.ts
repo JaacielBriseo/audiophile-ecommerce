@@ -5,7 +5,7 @@ import products from '@/data/data.json';
 
 export const getProductsInCart = (): ProductInCart[] => {
 	const cookiesStore = cookies();
-	const cartInCookies = JSON.parse(cookiesStore.get('cart')?.value ?? '{}') as { [id: string]: number };
+	const cartInCookies = JSON.parse(cookiesStore.get('cart')?.value ?? '{}') as Record<string, number>;
 	const productsInCart: ProductInCart[] = [];
 
 	for (const id of Object.keys(cartInCookies)) {
@@ -19,6 +19,9 @@ export const getProductsInCart = (): ProductInCart[] => {
 };
 
 export const removeAllProductsInCart = () => {
+	// Get the cookies store
 	const cookiesStore = cookies();
+
+	// Set the cart to an empty object
 	cookiesStore.set('cart', JSON.stringify({}));
 };

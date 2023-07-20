@@ -8,26 +8,26 @@ interface Props {
 	params: { category: string };
 }
 
-export async function generateStaticParams() {
-	return [
-		{
-			category: 'earphones',
-		},
-		{
-			category: 'speakers',
-		},
-		{
-			category: 'headphones',
-		},
-	];
-}
+// export async function generateStaticParams() {
+// 	return [
+// 		{
+// 			category: 'earphones',
+// 		},
+// 		{
+// 			category: 'speakers',
+// 		},
+// 		{
+// 			category: 'headphones',
+// 		},
+// 	];
+// }
 
-export function generateMetadata({ params }: Props): Metadata {
-	return {
-		title: `Products - Category:  ${params.category.toUpperCase()}`,
-		description: `Products page for ${params.category} category}`,
-	};
-}
+// export function generateMetadata({ params }: Props): Metadata {
+// 	return {
+// 		title: `Products - Category:  ${params.category.toUpperCase()}`,
+// 		description: `Products page for ${params.category} category}`,
+// 	};
+// }
 const CategoryPage = async ({ params: { category } }: Props) => {
 	const productsByCategory = await getCategoryProducts(category);
 	if (productsByCategory.length === 0) {
