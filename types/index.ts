@@ -46,25 +46,39 @@ export interface Other {
 }
 
 export type CheckoutForm = {
-	billingDetails: {
-		name: string;
-		emailAddress: string;
-		phoneNumber: string;
-	};
-	shippingInfo: {
-		yourAddress: string;
-		zipCode: string;
-		city: string;
-		country: string;
-	};
-	paymentDetails: {
-		paymenthMethod: PaymentMethod;
-		emoneyNumber?: string;
-		emoneyPin?: string;
-	};
+	billingDetails: BillingDetails;
+	shippingInfo: ShippingInfo;
+	paymentDetails: PaymentDetails;
 };
 
-enum PaymentMethod {
+export type BillingDetails = {
+	name: string;
+	emailAddress: string;
+	phoneNumber: string;
+};
+export type ShippingInfo = {
+	yourAddress: string;
+	zipCode: string;
+	city: string;
+	country: string;
+};
+
+export type PaymentDetails = {
+	paymentMethod: PaymentMethod.CASH | PaymentMethod.EMONEY;
+} & (
+	| {
+			paymentMethod: PaymentMethod.CASH;
+			emoneyNumber?: never;
+			emoneyPin?: never;
+	  }
+	| {
+			paymentMethod: PaymentMethod.EMONEY;
+			emoneyNumber: string;
+			emoneyPin: string;
+	  }
+);
+
+export enum PaymentMethod {
 	EMONEY = 'e-Money',
 	CASH = 'Cash on Delivery',
 }

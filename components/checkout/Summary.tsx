@@ -11,7 +11,7 @@ export const Summary = () => {
 	return (
 		<div className='bg-white-100 p-5 flex flex-col rounded-md gap-5'>
 			<h1 className='text-lg font-bold tracking-wider uppercase'>Summary</h1>
-			<ul className='flex flex-col gap-5'>
+			<ul className='flex flex-col gap-7'>
 				{productsInCart.map(({ product, quantity }) => (
 					<li key={product.id} className='flex gap-5'>
 						<Image src={product.image.mobile} alt='Product Name' width={70} height={70} className='rounded-md' />
@@ -31,7 +31,9 @@ export const Summary = () => {
 			<SummaryPriceField label='SHIPPING' price={shippingCost} />
 			<SummaryPriceField label='VAT(INCLUDED)' price={Math.round((vatPercentage / 100) * total)} />
 			<SummaryPriceField label='GRAND TOTAL' price={total + shippingCost} isPrimary />
-			<button className='btn-primary'>CONTINUE & PAY</button>
+			<button type='submit' className='btn-primary'>
+				CONTINUE & PAY
+			</button>
 		</div>
 	);
 };
